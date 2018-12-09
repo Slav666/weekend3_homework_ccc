@@ -1,0 +1,15 @@
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS tickets;
+
+CREATE TABLE movies(
+id SERIAL8 PRIMARY KEY,
+title VARCHAR(255),
+director_name VARCHAR(255)
+);
+
+CREATE TABLE tickets(
+id SERIAL8 PRIMARY KEY,
+customer_name VARCHAR(255),
+film_id SERIAL8,
+ticket_id INT4 REFERENCES tickets(id) ON DELETE CASCADE
+);
